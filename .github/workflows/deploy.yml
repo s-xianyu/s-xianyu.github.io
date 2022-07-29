@@ -30,15 +30,15 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ env.NODE_VERSION }}
-          cache: pnpm
+          cache: yarn
 
       # 安装依赖
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: yarn install --frozen-lockfile
 
       # 打包并生成静态文件
       - name: Build site
-        run: pnpm docs:build
+        run: yarn docs:build
 
       # 推送静态文件到 gh-pages 分支
       - name: Deploy
