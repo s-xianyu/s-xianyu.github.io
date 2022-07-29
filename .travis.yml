@@ -11,7 +11,7 @@ script:
 deploy:
   provider: pages
   skip-cleanup: true
-  github-token: $NEWBLOG_TOKEN
+  github-token: $NEW_BLOG_KEY
   keep-history: true
   on:
     branch: master
