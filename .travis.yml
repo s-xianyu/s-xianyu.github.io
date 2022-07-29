@@ -1,0 +1,18 @@
+sudo: false
+language: node_js
+node_js:
+  - 15 # use nodejs v10 LTS
+cache: npm
+branches:
+  only:
+    - master # 监视github仓库中的master分支，分支出现变化就执行build
+script:
+  - hexo generate # 静态部署
+deploy:
+  provider: pages
+  skip-cleanup: true
+  github-token: $GH_TOKEN
+  keep-history: true
+  on:
+    branch: master
+  local-dir: public
