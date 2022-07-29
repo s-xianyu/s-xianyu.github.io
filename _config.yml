@@ -123,7 +123,7 @@ theme: itsneko
 deploy:
   type: git
   repo:
-    # gitee: https://demo.com/demo/demo.git
+  repository: https://github.com/s-xianyu/new-blog.git
   branch: master
 
 search:
