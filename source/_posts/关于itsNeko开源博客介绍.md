@@ -3,7 +3,7 @@ title: 关于itsNeko开源博客食用方法
 abbrlink: 'itsneko-opensource-blog'
 tags: 
   - 关于itsNeko开源博客
-categories:  itsNeko博客食用方法
+categories:  itsNeko博客食用方法22
 mathjax: true
 date: 2021-12-16 00:34:14
 img: medias/toc-banner/aboutme.JPG
