@@ -1,0 +1,304 @@
+<!-- header模块开始 -->
+<header class="navbar-fixed" id="header-active">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="<%- url_for() %>" class="waves-effect waves-light">
+                    <% if (theme.logo !== undefined && theme.logo.length > 0) { %>
+                    <img src="<%- theme.jsDelivr.url %><%- url_for(theme.logo) %>" class="logo-img" alt="LOGO">
+                    <% } %>
+                    <!-- 大屏幕下logo字体 -->
+                    <span class="bigwidth"><%= config.title %></span>
+                    <!-- 小屏幕下logo字体 -->
+                    <span class="smallwidth"><%- config.title %></span>
+                </a>
+            </div>
+            <%- partial('_partial/navigation') %>
+        </div>
+        <div class="wavecontrl">
+            <style>
+              .wavelinedream {
+                height: 3px;
+                width: 100%;
+                position: absolute;
+                left: 50%;
+                bottom: -3px;
+                transform: translateX(-50%);
+                background: url(/medias/wave_white.png) 0 0 repeat-x;
+                background-size: 10px 3px;
+              }
+  
+              body.dark .wavelinedream {
+                height: 3px;
+                width: 100%;
+                position: absolute;
+                left: 50%;
+                bottom: -3px;
+                transform: translateX(-50%);
+                background: url(/medias/wave_black.png) 0 0 repeat-x;
+                background-size: 10px 3px;
+              }
+            </style>
+          </div>
+        <style>
+          .brand-logo .waves-effect {
+            font-size: 24px;
+            font-style: oblique;
+            color: #fadca6;
+          }
+        </style>
+        
+        <% if (theme.githubLink && theme.githubLink.enable) { %>
+            <%- partial('_partial/github-link') %>
+        <% } %>
+    </nav>
+</header>
+<!-- header模块结束 -->
+
+<!-- 春节主题模式样式开始 -->
+<style>
+    .denglong {
+        display: none;
+    }
+    body.themespring .denglong {
+        display: block;
+    }
+    @media only screen and (min-width: 1124px) {
+        .nav-menu {
+            padding-right: 0px;
+        }
+        body.themespring .nav-menu {
+            padding-right: 96px;
+        }
+    }
+    @media only screen and (max-width: 760px) {
+        .deng-box, .deng-box1 {
+            width: 40%;
+        }
+        body.themespring .right {
+            float: left!important;
+        }
+    }
+    @media only screen and (min-width: 768px) and (max-width: 1024px) {
+        .right {
+            float: left!important;
+        }
+    }
+    .deng-box {
+        position: fixed;
+        top: -40px;
+        right: -20px;
+        z-index: 999;
+    }
+    .deng-box1 {
+        position: fixed;
+        top: -30px;
+        right: 10px;
+        z-index: 999;
+    }
+    .deng-box1 .deng {
+        position: relative;
+        width: 120px;
+        height: 90px;
+        margin: 50px;
+        background: #d8000f;
+        background: rgba(216, 0, 15, 0.8);
+        border-radius: 50% 50%;
+        -webkit-transform-origin: 50% -100px;
+        -webkit-animation: swing 5s infinite ease-in-out;
+        box-shadow: -5px 5px 30px 4px rgba(252, 144, 61, 1);
+    }
+    .deng {
+        position: relative;
+        width: 120px;
+        height: 90px;
+        margin: 50px;
+        background: #d8000f;
+        background: rgba(216, 0, 15, 0.8);
+        border-radius: 50% 50%;
+        -webkit-transform-origin: 50% -100px;
+        -webkit-animation: swing 3s infinite ease-in-out;
+        box-shadow: -5px 5px 50px 4px rgba(250, 108, 0, 1);
+    }
+    .deng-a {
+        width: 100px;
+        height: 90px;
+        background: #d8000f;
+        background: rgba(216, 0, 15, 0.1);
+        margin: 12px 8px 8px 10px;
+        border-radius: 50% 50%;
+        border: 2px solid #dc8f03;
+    }
+    .deng-b {
+        width: 45px;
+        height: 90px;
+        background: #d8000f;
+        background: rgba(216, 0, 15, 0.1);
+        margin: -4px 8px 8px 26px;
+        border-radius: 50% 50%;
+        border: 2px solid #dc8f03;
+    }
+    .xian {
+        position: absolute;
+        top: -20px;
+        left: 60px;
+        width: 2px;
+        height: 20px;
+        background: #dc8f03;
+    }
+    .shui-a {
+        position: relative;
+        width: 5px;
+        height: 20px;
+        margin: -5px 0 0 59px;
+        -webkit-animation: swing 4s infinite ease-in-out;
+        -webkit-transform-origin: 50% -45px;
+        background: #ffa500;
+        border-radius: 0 0 5px 5px;
+    }
+    .shui-b {
+        position: absolute;
+        top: 14px;
+        left: -2px;
+        width: 10px;
+        height: 10px;
+        background: #dc8f03;
+        border-radius: 50%;
+    }
+    .shui-c {
+        position: absolute;
+        top: 18px;
+        left: -2px;
+        width: 10px;
+        height: 35px;
+        background: #ffa500;
+        border-radius: 0 0 0 5px;
+    }
+    .deng:before {
+        position: absolute;
+        top: -7px;
+        left: 29px;
+        height: 12px;
+        width: 60px;
+        content: " ";
+        display: block;
+        z-index: 999;
+        border-radius: 5px 5px 0 0;
+        border: solid 1px #dc8f03;
+        background: #ffa500;
+        background: linear-gradient(to right, #dc8f03, #ffa500, #dc8f03, #ffa500, #dc8f03);
+    }
+    .deng:after {
+        position: absolute;
+        bottom: -7px;
+        left: 10px;
+        height: 12px;
+        width: 60px;
+        content: " ";
+        display: block;
+        margin-left: 20px;
+        border-radius: 0 0 5px 5px;
+        border: solid 1px #dc8f03;
+        background: #ffa500;
+        background: linear-gradient(to right, #dc8f03, #ffa500, #dc8f03, #ffa500, #dc8f03);
+    }
+    @font-face {
+        font-family: "华文行楷";
+        src: url('/fonts/华文行楷.ttf');
+    }
+    .deng-t {
+        font-family: 华文行楷;
+        font-size: 26px;
+        color: #dc8f03;
+        font-weight: bold;
+        line-height: 44px;
+        text-align: center;
+    }
+    .night .deng-t,
+    .night .deng-box,
+    .night .deng-box1 {
+        background: transparent !important;
+    }
+    @-moz-keyframes swing {
+        0% {
+                -moz-transform: rotate(-10deg)
+        }
+        50% {
+             -moz-transform: rotate(10deg)
+        }
+        100% {
+                -moz-transform: rotate(-10deg)
+        }
+    }
+    @-webkit-keyframes swing {
+        0% {
+                -webkit-transform: rotate(-10deg)
+        }
+        50% {
+                -webkit-transform: rotate(10deg)
+        }
+        100% {
+                -webkit-transform: rotate(-10deg)
+        }
+    }
+</style>
+<div class="denglong">
+    <div class="deng-box">
+        <div class="deng">
+            <div class="xian"></div>
+            <div class="deng-a">
+                <div class="deng-b"><div class="deng-t" id="dtone">喜迎</div></div>
+            </div>
+            <div class="shui shui-a"><div class="shui-c"></div><div class="shui-b"></div></div>
+        </div>
+    </div>
+    <div class="deng-box1">
+        <div class="deng">
+            <div class="xian"></div>
+            <div class="deng-a">
+                <div class="deng-b"><div class="deng-t" id="dttwo">春节</div></div>
+            </div>
+            <div class="shui shui-a"><div class="shui-c"></div><div class="shui-b"></div></div>
+        </div>
+    </div>
+</div>
+<!-- 春节主题模式样式结束 -->
+<!-- 添加首页banner视频背景开始 -->
+<video id="index-video" autoplay="" loop="" muted="">
+    <!-- <source
+      src="https://txmov2.a.yximgs.com/upic/2022/02/07/12/BMjAyMjAyMDcxMjMzMTJfMTg1ODk2MDg4N182NjkxNjc3MjQxN18xXzM=_b_B361e052a603f9b8fdc7b2724f5de2319.mp4?pkey=AAUzykpJjul090qVNFvmta_0lahiIsTJe9L_wuwYosKysl0Mu93Q_QYZbIMSDzrilGS5euN_RndGurhMAbL2kIY7LdH67fWJSwpGq0YFswRQqA8m10PO1DCke_OOumkZ4_Y&tag=1-1644208599-xpcwebprofile-0-pndlsgwcf8-66ce1249efd42bc0&clientCacheKey=3xwhekw4vz2wgiy_b.mp4"> -->
+    <!-- 重庆之行视频地址 https://txmov2.a.yximgs.com/upic/2021/12/28/23/BMjAyMTEyMjgyMzI1MTBfMTg1ODk2MDg4N182MzcxMDIyODY5NF8xXzM=_b_B66b25bff4f74db9cca63374ccffbf953.mp4?pkey=AAWoKR9fnVwyKrDEHIQUYg0DNkL-jnMM_qoqIZ-gDyXmWlnUqr4Dw32xPcQZGjRg5h2vY-RAJKSLqqKsV6ZLLJUNuQvr-bHeAqJ_SvxGTZBhwVuC7Gt72yQlenL5VTC7rLg&tag=1-1640706280-xpcwebprofile-0-bjjwagtqtb-1fa609fd469a4043&clientCacheKey=3x7u9pz3mt2phig_b.mp4 -->
+    <!-- 王盈 一直很安静 个人介绍 两视频合并版 -->
+    <!-- <source src="https://txmov2.a.yximgs.com/upic/2021/04/09/22/BMjAyMTA0MDkyMjMwMDhfMTg1ODk2MDg4N180NzUyOTMyMjA4Nl8xXzM=_b_B8e080d7ede19e6674d48a9f12545007b.mp4?pkey=AAVAfNhi5_f-HGkIPXrY5w6nyf4JibwOY-WwdHgSJ2aSoi-2WQLpiYDunLbRZQuESz875eMdsepRlVFtXg9nuQY58uRc-7AsF0kEMNR6QYBj56g9JFFMSGdsoKK2-SV27u8&tag=1-1617978682-xpcwebprofile-0-lcvipceuti-9e40072f87531f1a&clientCacheKey=3xbbtbrfxqpccp4_b.mp4"> -->
+    <!-- 王盈 一直很安静 视频 -->
+    <!-- <source src="https://txmov2.a.yximgs.com/upic/2021/04/09/21/BMjAyMTA0MDkyMTQyNDRfMTg1ODk2MDg4N180NzUyNjAyMzA0N18xXzM=_b_B83b004b85aba8eca3ded270637616575.mp4"> -->
+    <source src="https://s-xianyu-1308686032.cos.ap-nanjing.myqcloud.com/video.mp4">
+    <!-- 王盈 个人介绍 视频 -->
+    <!-- <source src="https://txmov2.a.yximgs.com/upic/2021/04/09/21/BMjAyMTA0MDkyMTU4MDNfMTg1ODk2MDg4N180NzUyNzE0MzkyNV8xXzM=_b_Bf94cee6bd181efeaca64049bd2e4e276.mp4"> -->
+  </video>
+  <style>
+    #index-video {
+        z-index: -1;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 100%;
+        object-fit: cover;
+    }
+    .bg-cover {
+      background-image: none !important;
+    }
+/* 
+  @media only screen and (min-width: 760px) {
+    .bg-cover {
+      background-image: none !important;
+    }
+  }
+  @media only screen and (max-width: 760px) {
+    #index-video {
+      display: none;
+    }
+  } */
+  </style>
+  <!-- 添加首页banner视频背景结束 -->
